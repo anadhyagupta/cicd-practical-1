@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
 
 app.use(express.json());
 
@@ -25,6 +24,12 @@ app.get('/api/users', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`✅ Server running at http://localhost:${PORT}`);
-});
+// Only start server if this file is run directly (not in tests)
+if (require.main === module) {
+    const PORT = 3000;
+    app.listen(PORT, () => {
+        console.log(`✅ Server running at http://localhost:${PORT}`);
+    });
+}
+
+module.exports = app;
