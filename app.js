@@ -5,7 +5,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json({
-        message: '🎉 CI/CD Pipeline is working!',
+        message: '🎉 My CI/CD Pipeline is successfully automated!',
         status: 'success',
         timestamp: new Date().toISOString()
     });
